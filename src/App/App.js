@@ -21,6 +21,7 @@ function App() {
   const completedTodos = todos.filter((todo) => todo.completed).length;
   const totalTodos = todos.length;
 
+  return (
     <>
       <TodoCounter completed={completedTodos} total={totalTodos} />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
