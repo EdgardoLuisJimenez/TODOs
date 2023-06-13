@@ -6,17 +6,22 @@ import { CreateTodoButton } from "../CreateTodoButton/CreateTodoButton";
 import React from "react";
 import "./App.css";
 
-const defaultTodos = [
-  { text: "Cortar cebolla", completed: true },
-  { text: "Tomar el Curso de Intro a React.js", completed: false },
-  { text: "Llorar con la Llorona", completed: false },
-  { text: "LALALALALALA", completed: false },
-  { text: "Usar Estados derivados", completed: true },
-];
+// const defaultTodos = [
+//   { text: "Cortar cebolla", completed: true },
+//   { text: "Tomar el Curso de Intro a React.js", completed: false },
+//   { text: "Llorar con la Llorona", completed: false },
+//   { text: "LALALALALALA", completed: false },
+//   { text: "Usar Estados derivados", completed: true },
+// ];
+
+// localStorage.setItem('TODOS_V1', defaultTodos);
+// localStorage.removeItem('TODOS_V1');
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
-  const [searchValue, setSearchValue] = React.useState("");
+  let parseTodos = localStorage.getItem('TODOS_V1');
+
+  const [todos, setTodos] = React.useState();
+  const [searchValue, setSearchValue] = React.useState(parseTodos);
 
   const completedTodos = todos.filter((todo) => todo.completed).length;
   const totalTodos = todos.length;
