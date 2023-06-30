@@ -7,6 +7,7 @@ import { TodosError } from "../components/TodosError/TodosError";
 import { EmptyTodos } from "../components/EmptyTodos/EmptyTodos";
 import { CreateTodoButton } from "../components/CreateTodoButton/CreateTodoButton";
 import { TodoCounterLoading } from "../components/TodoCounterLoading/TodoCounterLoading";
+import { TodoSearchLoading } from "../components/TodoSearchLoading/TodoSearchLoading";
 
 function AppUI({
   loading,
@@ -21,12 +22,13 @@ function AppUI({
 }) {
   return (
     <>
-      {loading && <TodoCounterLoading />}
+      {loading && <TodoCounterLoading /> }
       {!loading && (
         <TodoCounter completed={completedTodos} total={totalTodos} />
       )}
-      {/* <TodoCounter completed={completedTodos} total={totalTodos} /> */}
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      {loading && <TodoSearchLoading/>}
+      {!loading && <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />}
+      {/* <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} /> */}
 
       <TodoList>
         {loading && (
