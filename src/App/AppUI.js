@@ -28,7 +28,6 @@ function AppUI({
       )}
       {loading && <TodoSearchLoading/>}
       {!loading && <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />}
-      {/* <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} /> */}
 
       <TodoList>
         {loading && (
