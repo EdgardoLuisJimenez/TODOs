@@ -1,8 +1,8 @@
 import React from "react";
-import { ReactDOM } from "react";
+import { createPortal } from "react-dom";
 
 function Modal({ children }) {
-  return ReactDOM.createPortal(
+  return createPortal(
     <div className="Modal">{children}</div>,
     document.getElementById("modal")
   );
