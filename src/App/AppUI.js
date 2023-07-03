@@ -40,7 +40,7 @@ function AppUI() {
           </>
         )}
         {error && <TodosError />}
-        {!loading && searchedTodos.length <= 1 && <EmptyTodos />}
+        {!loading && searchedTodos.length < 1 && <EmptyTodos />}
 
         {searchedTodos.map((todo) => (
           <TodoItem
