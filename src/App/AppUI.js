@@ -11,6 +11,7 @@ import { TodoSearchLoading } from "../components/TodoSearchLoading/TodoSearchLoa
 import { TodoContext } from "../TodoContext/TodoContext";
 import React from "react";
 import { Modal } from "../components/Modal/Modal";
+import { TodoForm } from "../components/TodoForm/TodoForm";
 
 function AppUI() {
   const {
@@ -52,13 +53,11 @@ function AppUI() {
         ))}
       </TodoList>
 
-      <CreateTodoButton 
-      setOpenModal={setOpenModal}
-      />
+      <CreateTodoButton setOpenModal={setOpenModal} />
 
       {openModal && (
         <Modal>
-          La funcionalidad de agregar TODO
+          <TodoForm />
         </Modal>
       )}
     </>
