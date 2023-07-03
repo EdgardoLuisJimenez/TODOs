@@ -1,12 +1,9 @@
 # Repositorio base del Curso de Introducción a React.js en Platzi
 
-¡Hola, Platzinauta!
+¡Hi everyone this is a project made in React!. It's about a TODOs List. You are invited to try it.
 
-En este repositorio encontrarás el código de todas las clases del [Curso de Introducción a React.js](https://platzi.com/reactjs). Para empezar solo debes clonar este repositorio (`git clone`), instalar sus dependencias (`npm i`) y ejecutar la aplicación (`npm start`).
+To start you just have to clone this repository (`git clone`) and install its dependencies (`npm i`) and run the applicaction (`npm start`).
 
-La rama principal contiene el código con el que eempezamos el curso. En las demás ramas encontrarás el código de las siguientes clases y finalmente el deploy de la aplicación.
-
-¡Mucha suerte aprendiendo React! #NuncaParesDeAprender
 
 ## Getting Started with Create React App
 
