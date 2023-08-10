@@ -12,6 +12,7 @@ import { TodoContext } from "../TodoContext/TodoContext";
 import React from "react";
 import { Modal } from "../components/Modal/Modal";
 import { TodoForm } from "../components/TodoForm/TodoForm";
+import { TodoHeader } from "../components/TodoHeader";
 
 function AppUI() {
   const {
@@ -22,25 +23,44 @@ function AppUI() {
     deleteTodo,
     openModal,
     setOpenModal,
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
   } = React.useContext(TodoContext);
 
   return (
     <>
-      {loading && <TodoCounterLoading />}
-      {!loading && <TodoCounter />}
-      {loading && <TodoSearchLoading />}
-      {!loading && <TodoSearch />}
+      <TodoHeader>
+        {loading ? (
+          <>
+            <TodoCounterLoading />
+            <TodoSearchLoading />
+          </>
+        ) : (
+          <>
+            <TodoCounter completed={completedTodos} total={totalTodos} />
+            <TodoSearch
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+            />
+          </>
+        )}
+      </TodoHeader>
 
       <TodoList>
-        {loading && (
+        {loading ? (
           <>
             <TodosLoading />
             <TodosLoading />
             <TodosLoading />
           </>
+        ) : (
+          <>
+            {error && <TodosError />}
+            {searchedTodos.length < 1 && <EmptyTodos />}
+          </>
         )}
-        {error && <TodosError />}
-        {!loading && searchedTodos.length < 1 && <EmptyTodos />}
 
         {searchedTodos.map((todo) => (
           <TodoItem
