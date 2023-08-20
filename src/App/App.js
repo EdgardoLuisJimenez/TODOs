@@ -4,6 +4,7 @@ import { TodoHeader } from "../components/TodoHeader";
 import { TodoCounterLoading } from "../components/TodoCounterLoading/TodoCounterLoading";
 import { TodoSearchLoading } from "../components/TodoSearchLoading/TodoSearchLoading";
 import { TodoCounter } from "../components/TodoCounter/TodoCounter";
+import { EmptySearchResults } from "../components/EmptySearchResults/EmptySearchResults";
 import { TodoList } from "../components/TodoList/TodoList";
 import { TodoSearch } from "../components/TodoSearch/TodoSearch";
 import { TodosLoading } from "../components/TodosLoading/TodosLoading";
@@ -54,6 +55,8 @@ function App() {
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
+        searchText={searchValue}
+        totalTodos={totalTodos}
         onError={() => <TodosError />}
         onLoading={() => (
           <>
@@ -63,7 +66,20 @@ function App() {
           </>
         )}
         onEmptyTodos={() => <EmptyTodos />}
-        render={(todo) => (
+        onEmptySearchResults={(searchText) => (
+          <EmptySearchResults searchText={searchText} />
+        )}
+        // render={(todo) => (
+        //   <TodoItem
+        //     key={todo.text}
+        //     text={todo.text}
+        //     completed={todo.completed}
+        //     onComplete={() => completeTodo(todo.text)}
+        //     onDelete={() => deleteTodo(todo.text)}
+        //   />
+        // )}
+      >
+        {(todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -72,7 +88,7 @@ function App() {
             onDelete={() => deleteTodo(todo.text)}
           />
         )}
-      />
+      </TodoList>
 
       <CreateTodoButton setOpenModal={setOpenModal} />
 
