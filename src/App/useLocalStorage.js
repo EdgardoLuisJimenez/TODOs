@@ -1,6 +1,7 @@
 import React from "react";
 
 function useLocalStorage(itemName, initialValue) {
+  const [sincronizedItem, setSincronizedItem] = React.useState(true);
   const [item, setItem] = React.useState(initialValue);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
@@ -21,12 +22,13 @@ function useLocalStorage(itemName, initialValue) {
         }
 
         setLoading(false);
+        setSincronizedItem(true);
       } catch {
         setLoading(false);
         setError(true);
       }
-    }, 2000);
-  }, []);
+    }, 3000);
+  }, [sincronizedItem]);
 
   const saveItem = (newItem) => {
     localStorage.setItem(itemName, JSON.stringify(newItem));
@@ -34,11 +36,15 @@ function useLocalStorage(itemName, initialValue) {
     setItem(newItem);
   };
 
-  return { item, saveItem, loading, error };
+  const sincronizeItem = () => {
+    setLoading(true);
+    setSincronizedItem(false);
+  };
+
+  return { item, saveItem, loading, error, sincronizeItem };
 }
 
 export { useLocalStorage };
-
 
 // const defaultTodos = [
 //   { text: "Cortar cebolla", completed: true },
