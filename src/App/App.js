@@ -17,21 +17,26 @@ import { TodoForm } from "../components/TodoForm/TodoForm";
 import "./App.css";
 
 function App() {
+  const { states, stateUpdaters } = useTodos();
+
   const {
     loading,
     error,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
     completedTodos,
     totalTodos,
     searchValue,
+    searchedTodos,
+    openModal,
+  } = states;
+
+  const {
     setSearchValue,
     addTodo,
+    completeTodo,
+    deleteTodo,
+    setOpenModal,
     sincronizedTodos,
-  } = useTodos();
+  } = stateUpdaters;
 
   return (
     <>
