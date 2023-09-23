@@ -99,7 +99,7 @@ function App() {
         </Modal>
       )}
 
-      <ChangeAlert sincronize={sincronizedTodos} />
+      {/* <ChangeAlert sincronize={sincronizedTodos} /> */}
     </>
   );
 }
